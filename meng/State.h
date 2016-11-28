@@ -6,10 +6,13 @@
 #define WLD_EXP_STATE_H
 
 #include "memory"
+#include "view/View.h"
 
 namespace MEng {
 
     class State {
+    protected:
+        View::ViewPtr viewPtr;
     public:
         virtual void update(int timeDelta) = 0;
     };
