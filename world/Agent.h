@@ -20,6 +20,7 @@ namespace Behaviour {
 }
 
 class Agent {
+    friend class World;
 private:
     float food;
     float water;
@@ -27,6 +28,8 @@ private:
     int maxWeight;
     float foodConsumption;
     float waterConsumption;
+
+    std::string name;
 
     Behaviour::StatePtr state;
     std::unordered_set<std::string> statuses;
