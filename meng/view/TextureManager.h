@@ -5,6 +5,7 @@
 #ifndef WLD_EXP_TEXTUREMANAGER_H
 #define WLD_EXP_TEXTUREMANAGER_H
 
+#include <map>
 #include <string>
 #include <unordered_map>
 
@@ -17,7 +18,9 @@ namespace View {
 
 class TextureManager: public MEng::Utils::Singleton<TextureManager> {
 private:
-    std::unordered_map<std::string, sf::Texture> textures;
+    // Strange behaviour of unordered_map on MinGW-W64 makes me to use default map
+    // TODO: Check on different toolset
+    std::map<std::string, sf::Texture> textures;
 public:
     sf::Texture& getTexture(const std::string& path);
 };
