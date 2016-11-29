@@ -17,7 +17,8 @@ private:
     sf::RenderWindow window;
 public:
     void init(unsigned int width, unsigned int height);
-    void draw(sf::Sprite& sprite);
+    void draw(sf::Drawable& sprite);
+    sf::RenderWindow& getRenderWindow() { return window; }
 };
 
 }}

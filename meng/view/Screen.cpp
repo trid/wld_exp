@@ -10,6 +10,6 @@ void Screen::init(unsigned int width, unsigned int height) {
     window.create(sf::VideoMode(width, height), "MEng Window");
 }
 
-void Screen::draw(sf::Sprite &sprite) {
+void Screen::draw(sf::Drawable &sprite) {
     window.draw(sprite);
 }
