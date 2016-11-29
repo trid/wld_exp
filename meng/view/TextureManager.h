@@ -5,7 +5,8 @@
 #ifndef WLD_EXP_TEXTUREMANAGER_H
 #define WLD_EXP_TEXTUREMANAGER_H
 
-#include <vector>
+#include <string>
+#include <unordered_map>
 
 #include <sfml/Graphics/Texture.hpp>
 
@@ -16,7 +17,7 @@ namespace View {
 
 class TextureManager: public MEng::Utils::Singleton<TextureManager> {
 private:
-    std::vector<sf::Texture> textures;
+    std::unordered_map<std::string, sf::Texture> textures;
 public:
     sf::Texture& getTexture(const std::string& path);
 };

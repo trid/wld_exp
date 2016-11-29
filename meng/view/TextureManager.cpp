@@ -5,7 +5,10 @@
 #include "TextureManager.h"
 
 sf::Texture &MEng::View::TextureManager::getTexture(const std::string &path) {
-    textures.emplace_back();
-    textures.back().loadFromFile(path);
-    return textures.back();
+    if (textures.find(path) == textures.end()) {
+        textures.insert(std::make_pair(path, sf::Texture()));
+        textures[path].loadFromFile(path);
+    }
+
+    return textures[path];
 }
