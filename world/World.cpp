@@ -19,11 +19,11 @@ bool World::doAction(Agent &actor, const std::string &action) {
 }
 
 World::World() {
-    locations.insert(std::make_pair("forest", Location{250, 0}));
+    locations.emplace(std::piecewise_construct, std::forward_as_tuple("forest"), std::forward_as_tuple(250, 0));
     locations.at("forest").addActions({"hunt", "cut_wood"});
-    locations.insert(std::make_pair("home", Location{230, 400}));
+    locations.emplace(std::piecewise_construct, std::forward_as_tuple("home"), std::forward_as_tuple(230, 400));
     locations.at("home").addActions({"eat"});
-    locations.insert(std::make_pair("well", Location{20, 200}));
+    locations.emplace(std::piecewise_construct, std::forward_as_tuple("well"), std::forward_as_tuple(20, 200));
     locations.at("well").addActions({"drink"});
 
     boost::filesystem::path p("res/agents");
