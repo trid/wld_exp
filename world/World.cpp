@@ -8,6 +8,8 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 
+using namespace boost::filesystem;
+
 void World::update(int timeDelta) {
 
 }
@@ -17,15 +19,12 @@ bool World::doAction(Agent &actor, const std::string &action) {
 }
 
 World::World() {
-    Location forest;
-    forest.addActions({"hunt", "cut_wood"});
-    locations["forest"] = std::move(forest);
-    Location home;
-    home.addActions({"eat"});
-    locations["home"] = std::move(home);
-    Location well;
-    well.addActions({"drink"});
-    locations["well"] = std::move(well);
+    locations.insert(std::make_pair("forest", Location{250, 0}));
+    locations.at("forest").addActions({"hunt", "cut_wood"});
+    locations.insert(std::make_pair("home", Location{230, 400}));
+    locations.at("home").addActions({"eat"});
+    locations.insert(std::make_pair("well", Location{20, 200}));
+    locations.at("well").addActions({"drink"});
 
     boost::filesystem::path p("res/agents");
     for (directory_entry &x: directory_iterator(p)) {
