@@ -15,6 +15,8 @@ namespace MEng {
         View::ViewPtr viewPtr;
     public:
         virtual void update(int timeDelta) = 0;
+        bool hasView() { return viewPtr != nullptr; }
+        View::View& getView() { return *viewPtr; }
     };
 
     using StatePtr = std::shared_ptr<State>;

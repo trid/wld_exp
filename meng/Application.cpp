@@ -3,6 +3,7 @@
 //
 
 #include "Application.h"
+#include "view/Screen.h"
 
 void MEng::Application::run() {
     while (true) {
@@ -10,6 +11,10 @@ void MEng::Application::run() {
 
         if (!states.empty()) {
             states.back()->update(time.asMilliseconds());
+            if (states.back()->hasView()) {
+                states.back()->getView().draw();
+                View::Screen::getInstance().getRenderWindow().display();
+            }
         }
     }
 }

@@ -9,7 +9,7 @@
 int main(int argc, char* argv[]) {
     MEng::Application& app = MEng::Application::getInstance();
 
-    MEng::View::Screen::getInstance().init(800, 600);
+    MEng::View::Screen::getInstance().init(1024, 768);
 
     app.pushState(std::make_shared<WorldState>());
     app.run();

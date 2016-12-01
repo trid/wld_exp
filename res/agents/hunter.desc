@@ -1,0 +1,6 @@
+{
+  "name": "Hunter Doe",
+  "maxWeight": 50,
+  "foodConsumption": 1.5,
+  "waterConsumption": 1
+}

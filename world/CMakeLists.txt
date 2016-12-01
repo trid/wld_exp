@@ -8,14 +8,19 @@ set(SOURCE_FILES
         WorldState.cpp)
 
 set(BEHAVIOR_SOURCE_FILES
-        Behaviour/State.cpp
-        Behaviour/StateQueue.cpp)
+        behaviour/State.cpp
+        behaviour/StateQueue.cpp
+        behaviour/ScriptedState.cpp
+        behaviour/StateStorage.cpp)
 
-set(VIEW_SRC view/WorldView.cpp view/WorldView.h view/AgentView.cpp view/AgentView.h)
+set(VIEW_SRC view/WorldView.cpp
+        view/AgentView.cpp)
 
 set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost COMPONENTS system filesystem)
 include_directories(${BOOST_INCLUDEDIR})
+
+find_package(Lua REQUIRED)
 
 include_directories(${meng_SOURCE_DIR})
 
@@ -36,6 +41,7 @@ if(SFML_FOUND)
     target_link_libraries(world ${Boost_LIBRARIES})
 endif()
 
+target_link_libraries(world ${LUA_LIBRARIES})
 target_link_libraries(world ${OPENGL_LIBRARIES})
 if (WIN32)
     target_link_libraries(world jpeg)
