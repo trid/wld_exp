@@ -21,8 +21,12 @@ private:
 public:
     World();
 
+    Location& getLocation(const std::string &name);
+
     bool doAction(Agent& actor, const std::string& action);
     void update(int timeDelta);
+
+    const std::vector<Agent> &getAgents() const;
 };
 
 

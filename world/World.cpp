@@ -44,3 +44,11 @@ void World::addAgent(const std::string &path) {
     agent.foodConsumption = pt.get<float>("foodConsumption");
     agent.waterConsumption = pt.get<float>("waterConsumption");
 }
+
+Location &World::getLocation(const std::string &name) {
+    return locations.at(name);
+}
+
+const std::vector<Agent> &World::getAgents() const {
+    return agents;
+}
