@@ -12,6 +12,8 @@
 class WorldState: public MEng::State {
 private:
     World world;
+
+    void registerScripts();
 public:
     WorldState();
 
