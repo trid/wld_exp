@@ -5,10 +5,22 @@
 #ifndef WLD_EXP_SCRIPTMANAGER_H
 #define WLD_EXP_SCRIPTMANAGER_H
 
+#include "utils/Singleton.h"
+
+#include <string>
+
+#include <lua/lua.hpp>
+
 namespace MEng {
 
-class ScriptManager {
+class ScriptManager: public MEng::Utils::Singleton<ScriptManager> {
+private:
+    lua_State* state;
+public:
+    ScriptManager();
 
+    void loadFile(const std::string& path);
+    void registerFunction(const std::string &name, lua_CFunction func);
 };
 
 }
