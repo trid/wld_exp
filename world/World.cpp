@@ -41,7 +41,7 @@ World::World() {
 }
 
 void World::addAgent(const std::string &path) {
-    agents.emplace_back();
+    agents.emplace_back(*this);
     auto& agent = agents.back();
 
     boost::property_tree::ptree pt;
