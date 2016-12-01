@@ -43,6 +43,9 @@ void World::addAgent(const std::string &path) {
     agent.maxWeight = pt.get<int>("maxWeight");
     agent.foodConsumption = pt.get<float>("foodConsumption");
     agent.waterConsumption = pt.get<float>("waterConsumption");
+
+    agent.x = locations.at("home").getX();
+    agent.y = locations.at("home").getY();
 }
 
 Location &World::getLocation(const std::string &name) {

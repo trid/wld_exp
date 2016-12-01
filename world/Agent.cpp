@@ -29,3 +29,11 @@ void Agent::addStatus(const std::string &status) {
         }
     }
 }
+
+float Agent::getX() const {
+    return x;
+}
+
+float Agent::getY() const {
+    return y;
+}

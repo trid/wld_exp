@@ -29,6 +29,9 @@ private:
     float foodConsumption;
     float waterConsumption;
 
+    float x;
+    float y;
+
     std::string name;
 
     Behaviour::StatePtr state;
@@ -41,8 +44,12 @@ private:
 
     void addStatus(const std::string& status);
 public:
+    Agent(): currentStatus(noStatus) {}
 
     void update(int timeDelta);
+
+    float getX() const;
+    float getY() const;
 };
 
 
