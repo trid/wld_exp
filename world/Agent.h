@@ -42,6 +42,7 @@ private:
     World& world;
 
     Behaviour::StatePtr state;
+    Behaviour::StatePtr onIdle;
     std::unordered_set<std::string> statuses;
     std::reference_wrapper<const std::string> currentStatus;
 
