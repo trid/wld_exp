@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+class World;
+
 const std::string noStatus = "";
 
 namespace Behaviour {
@@ -32,7 +34,12 @@ private:
     float x;
     float y;
 
+    std::string itemsType;
+
     std::string name;
+    std::string location;
+
+    World& world;
 
     Behaviour::StatePtr state;
     std::unordered_set<std::string> statuses;
@@ -44,7 +51,7 @@ private:
 
     void addStatus(const std::string& status);
 public:
-    Agent(): currentStatus(noStatus) {}
+    Agent(World &world);
 
     void update(int timeDelta);
 

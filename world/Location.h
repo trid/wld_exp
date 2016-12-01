@@ -28,6 +28,10 @@ public:
     int getY() const {
         return y;
     }
+
+    const std::set<std::string> &getActions() const {
+        return actions;
+    }
 };
 
 

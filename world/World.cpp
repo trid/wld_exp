@@ -15,7 +15,13 @@ void World::update(int timeDelta) {
 }
 
 bool World::doAction(Agent &actor, const std::string &action) {
-    return false;
+    const std::set<std::string> &actions = locations.at(actor.location).getActions();
+    if (actions.find(action) != actions.end()){
+
+    }
+    else {
+        return false;
+    }
 }
 
 World::World() {

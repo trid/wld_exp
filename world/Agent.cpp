@@ -37,3 +37,5 @@ float Agent::getX() const {
 float Agent::getY() const {
     return y;
 }
+
+Agent::Agent(World &world) : currentStatus(noStatus), world(world) {}
