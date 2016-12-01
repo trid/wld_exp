@@ -16,6 +16,7 @@ private:
     int y;
 public:
     Location(int x, int y) : x(x), y(y) {}
+    Location(Location&& location);
 
     void addActions(std::initializer_list<std::string> initializerList) {
         actions.insert(initializerList.begin(), initializerList.end());
