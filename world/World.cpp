@@ -11,7 +11,9 @@
 using namespace boost::filesystem;
 
 void World::update(int timeDelta) {
-
+    for (auto& agent: agents) {
+        agent.update(timeDelta);
+    }
 }
 
 bool World::doAction(Agent &actor, const std::string &action) {
