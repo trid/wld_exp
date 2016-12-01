@@ -5,10 +5,19 @@
 #ifndef WLD_EXP_STATESTORAGE_H
 #define WLD_EXP_STATESTORAGE_H
 
+#include <string>
+#include <unordered_map>
+
+#include "utils/Singleton.h"
+#include "State.h"
+
 namespace Behaviour {
 
-class StateStorage {
-
+class StateStorage: public MEng::Utils::Singleton<StateStorage> {
+private:
+    std::unordered_map<std::string, StatePtr> states;
+public:
+    void addState(const std::string& name, StatePtr ptr);
 };
 
 }

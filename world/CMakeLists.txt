@@ -5,7 +5,8 @@ set(SOURCE_FILES
         main.cpp
         Location.cpp
         World.cpp
-        WorldState.cpp)
+        WorldState.cpp
+        script_utils/ScriptUtils.cpp)
 
 set(BEHAVIOR_SOURCE_FILES
         behaviour/State.cpp
