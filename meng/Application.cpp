@@ -6,7 +6,7 @@
 #include "view/Screen.h"
 
 void MEng::Application::run() {
-    while (true) {
+    while (running) {
         sf::Time time = clock.restart();
 
         if (!states.empty()) {

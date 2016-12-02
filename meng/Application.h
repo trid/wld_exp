@@ -22,8 +22,12 @@ namespace MEng {
         States states;
 
         sf::Clock clock;
+
+        bool running{true};
     public:
         void run();
+        void stop() { running = false; }
+        bool isRunning() const { return running; }
 
         void pushState(StatePtr state);
     };
