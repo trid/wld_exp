@@ -41,6 +41,7 @@ private:
 
     std::string name;
     std::string location;
+    std::string destination;
 
     World& world;
 
@@ -66,6 +67,7 @@ public:
     float getY() const;
 
     bool isMoving() { return dx != 0.0f || dy != 0.0f; }
+    const std::string &getDestination() const { return destination; }
 };
 
 
