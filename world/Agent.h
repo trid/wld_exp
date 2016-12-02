@@ -8,6 +8,7 @@
 
 #include <functional>
 #include <memory>
+#include <queue>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
@@ -43,6 +44,9 @@ private:
 
     Behaviour::StatePtr state;
     Behaviour::StatePtr onIdle;
+
+    std::queue<Behaviour::StatePtr> suspendedBehaviours;
+
     std::unordered_set<std::string> statuses;
     std::reference_wrapper<const std::string> currentStatus;
 

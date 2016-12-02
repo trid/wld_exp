@@ -11,9 +11,17 @@
 
 namespace Behaviour {
 
+    enum class SuspendType {
+        End = 0,
+        Save,
+        Reset,
+        NonSuspendable
+    };
+
     class State {
     public:
         virtual void act(Agent& agent) = 0;
+        virtual SuspendType getSuspendType() { return SuspendType::Save; }
     };
 
     using StatePtr = std::shared_ptr<State>;

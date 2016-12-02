@@ -4,6 +4,8 @@
 
 #include "Agent.h"
 
+#include "behaviour/State.h"
+
 void Agent::update(int timeDelta) {
     updTime += timeDelta;
     if (updTime >= 1000) {
@@ -25,6 +27,11 @@ void Agent::addStatus(const std::string &status) {
 
         if (currentStatus.get() != noStatus && reactions.find(status) != reactions.end()) {
             currentStatus = *s.first;
+
+            if (state->getSuspendType() == Behaviour::SuspendType::Save || state->getSuspendType() == Behaviour::SuspendType::Reset) {
+                suspendedBehaviours.push(state);
+            }
+
             state = reactions[status];
         }
     }
