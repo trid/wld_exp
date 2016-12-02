@@ -29,13 +29,5 @@ public:
     const std::vector<Agent> &getAgents() const;
 };
 
-bool Agent::isWorking() const {
-    return working;
-}
-
-const std::string &Agent::getWorkType() const {
-    return workType;
-}
-
 
 #endif //WLD_EXP_WORLD_H

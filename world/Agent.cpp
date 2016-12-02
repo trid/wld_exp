@@ -48,4 +48,14 @@ float Agent::getY() const {
     return y;
 }
 
-Agent::Agent(World &world) : currentStatus(noStatus), world(world) {}
+Agent::Agent(World &world) : currentStatus(noStatus), world(world) {
+
+}
+
+bool Agent::isWorking() const {
+    return working;
+}
+
+const std::string &Agent::getWorkType() const {
+    return workType;
+}
