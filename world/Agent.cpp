@@ -7,6 +7,9 @@
 #include "behaviour/State.h"
 
 void Agent::update(int timeDelta) {
+    if (state) {
+        state->act(*this);
+    }
     updTime += timeDelta;
     if (updTime >= 1000) {
         food -= foodConsumption;
