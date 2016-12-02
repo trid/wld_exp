@@ -34,6 +34,8 @@ private:
 
     float x;
     float y;
+    float dx{0.0f};
+    float dy{0.0f};
 
     std::string itemsType;
 
@@ -62,6 +64,8 @@ public:
 
     float getX() const;
     float getY() const;
+
+    bool isMoving() { return dx != 0.0f || dy != 0.0f; }
 };
 
 
