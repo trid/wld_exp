@@ -22,6 +22,11 @@ namespace Behaviour {
     using StatePtr = std::shared_ptr<State>;
 }
 
+namespace ItemTypes {
+    const std::string wood = "wood";
+    const std::string food = "food";
+}
+
 class Agent {
     friend class World;
 private:
