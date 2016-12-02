@@ -37,6 +37,9 @@ private:
     float dx{0.0f};
     float dy{0.0f};
 
+    bool working;
+    std::string workType;
+
     std::string itemsType;
 
     std::string name;
@@ -68,6 +71,10 @@ public:
 
     bool isMoving() { return dx != 0.0f || dy != 0.0f; }
     const std::string &getDestination() const { return destination; }
+
+    bool isWorking() const;
+
+    const std::string &getWorkType() const;
 };
 
 
