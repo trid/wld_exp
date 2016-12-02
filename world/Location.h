@@ -8,6 +8,12 @@
 #include <set>
 #include <string>
 
+namespace LocationNames{
+    const std::string Home = "home";
+    const std::string Well = "well";
+    const std::string Forest = "forest";
+}
+
 class Location {
 private:
     std::set<std::string> actions;
