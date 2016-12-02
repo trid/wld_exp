@@ -56,6 +56,8 @@ void World::addAgent(const std::string &path) {
     agent.x = locations.at("home").getX();
     agent.y = locations.at("home").getY();
 
+    agent.speed = pt.get<float>("speed", 10.f);
+
     agent.onIdle = Behaviour::StateStorage::getInstance().getState(pt.get<std::string>("onIdle"));
 }
 

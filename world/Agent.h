@@ -36,6 +36,7 @@ private:
     float y;
     float dx{0.0f};
     float dy{0.0f};
+    float speed;
 
     bool working;
     std::string workType;

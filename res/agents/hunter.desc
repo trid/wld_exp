@@ -3,5 +3,6 @@
   "maxWeight": 50,
   "foodConsumption": 1.5,
   "waterConsumption": 1,
+  "speed": 15,
   "onIdle": "hunterIdle"
 }
