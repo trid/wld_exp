@@ -3,6 +3,7 @@
 //
 
 #include "World.h"
+#include "behaviour/StateStorage.h"
 
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/ptree.hpp>
@@ -54,6 +55,8 @@ void World::addAgent(const std::string &path) {
 
     agent.x = locations.at("home").getX();
     agent.y = locations.at("home").getY();
+
+    agent.onIdle = Behaviour::StateStorage::getInstance().getState(pt.get<std::string>("onIdle"));
 }
 
 Location &World::getLocation(const std::string &name) {

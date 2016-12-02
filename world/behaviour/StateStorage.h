@@ -19,6 +19,7 @@ private:
 public:
     StateStorage();
     void addState(const std::string& name, StatePtr ptr);
+    StatePtr getState(const std::string& name) { return states[name]; }
 };
 
 }
