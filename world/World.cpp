@@ -34,7 +34,7 @@ World::World() {
     locations.emplace(std::piecewise_construct, std::forward_as_tuple("well"), std::forward_as_tuple(20, 200));
     locations.at("well").addActions({"drink"});
 
-    boost::filesystem::path p("res/agents");
+    path p("res/agents");
     for (directory_entry &x: directory_iterator(p)) {
         addAgent(x.path().string());
     }

@@ -10,7 +10,13 @@
 namespace Behaviour {
 
 class ScriptedState: public State {
+private:
+    std::string tableName;
 
+public:
+    ScriptedState(const std::string &tableName);
+
+    void act(Agent &agent) override;
 };
 
 }

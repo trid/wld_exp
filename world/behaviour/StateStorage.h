@@ -17,6 +17,7 @@ class StateStorage: public MEng::Utils::Singleton<StateStorage> {
 private:
     std::unordered_map<std::string, StatePtr> states;
 public:
+    StateStorage();
     void addState(const std::string& name, StatePtr ptr);
 };
 

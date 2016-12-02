@@ -3,3 +3,9 @@
 //
 
 #include "ScriptedState.h"
+
+Behaviour::ScriptedState::ScriptedState(const std::string &tableName) : tableName(tableName) {}
+
+void Behaviour::ScriptedState::act(Agent &agent) {
+
+}

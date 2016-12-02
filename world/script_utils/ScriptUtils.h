@@ -9,6 +9,7 @@
 
 namespace ScriptUtils {
 int print(lua_State* luaState);
+int registerState(lua_State* luaState);
 }
 
 #endif //WLD_EXP_SCREEPTUTILS_H

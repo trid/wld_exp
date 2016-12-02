@@ -5,7 +5,7 @@
 #include <ScriptManager.h>
 #include "WorldState.h"
 #include "view/WorldView.h"
-#include "script_utils/ScreeptUtils.h"
+#include "script_utils/ScriptUtils.h"
 
 void WorldState::update(int timeDelta) {
 
