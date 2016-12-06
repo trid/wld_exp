@@ -13,7 +13,7 @@ set(BEHAVIOR_SOURCE_FILES
         behaviour/State.cpp
         behaviour/StateQueue.cpp
         behaviour/ScriptedState.cpp
-        behaviour/StateStorage.cpp behaviour/Action.cpp behaviour/Action.h behaviour/DrinkAction.cpp behaviour/DrinkAction.h behaviour/EatAction.cpp behaviour/EatAction.h)
+        behaviour/StateStorage.cpp behaviour/Action.cpp behaviour/Action.h behaviour/DrinkAction.cpp behaviour/DrinkAction.h behaviour/EatAction.cpp behaviour/EatAction.h behaviour/CutWoodAction.cpp behaviour/CutWoodAction.h behaviour/HuntAction.cpp behaviour/HuntAction.h)
 
 set(VIEW_SRC view/WorldView.cpp
         view/AgentView.cpp behaviour/Action.cpp behaviour/Action.h)

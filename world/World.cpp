@@ -81,6 +81,6 @@ void World::refillWater(Agent &agent) {
     agent.water = 100;
 }
 
-void World::addJob(JobPtr& job) {
+void World::addJob(JobPtr &&job) {
     jobs.push_back(std::move(job));
 }
