@@ -23,8 +23,13 @@ namespace Behaviour {
 }
 
 namespace ItemTypes {
-    const std::string wood = "wood";
-    const std::string food = "food";
+    const std::string Wood = "wood";
+    const std::string Food = "food";
+}
+
+namespace ReactionType {
+    const std::string Hungry = "hungry";
+    const std::string Thirsty = "thirsty";
 }
 
 class Agent {
