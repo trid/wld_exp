@@ -30,6 +30,9 @@ public:
     void update(int timeDelta);
 
     const std::vector<Agent> &getAgents() const;
+
+    void refillFood(Agent& agent);
+    void refillWater(Agent& agent);
 };
 
 

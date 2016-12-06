@@ -68,3 +68,11 @@ Location &World::getLocation(const std::string &name) {
 const std::vector<Agent> &World::getAgents() const {
     return agents;
 }
+
+void World::refillFood(Agent &agent) {
+    agent.food = 100;
+}
+
+void World::refillWater(Agent &agent) {
+    agent.water = 100;
+}
