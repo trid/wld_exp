@@ -80,6 +80,8 @@ public:
 
     bool isWorking() const;
 
+    void addItems(const std::string& type, int count);
+
     const std::string &getWorkType() const;
 };
 
