@@ -15,6 +15,10 @@ void World::update(int timeDelta) {
     for (auto& agent: agents) {
         agent.update(timeDelta);
     }
+
+    for (auto& job: jobs) {
+        job->update(timeDelta);
+    }
 }
 
 bool World::doAction(Agent &actor, const std::string &action) {

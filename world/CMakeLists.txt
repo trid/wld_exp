@@ -2,11 +2,12 @@ project(World)
 
 set(SOURCE_FILES
         Agent.cpp
+        Job.cpp
         main.cpp
         Location.cpp
         World.cpp
         WorldState.cpp
-        script_utils/ScriptUtils.cpp)
+        script_utils/ScriptUtils.cpp TimerJob.cpp TimerJob.h)
 
 set(BEHAVIOR_SOURCE_FILES
         behaviour/State.cpp
