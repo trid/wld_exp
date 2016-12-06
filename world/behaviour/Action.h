@@ -9,11 +9,13 @@
 
 #include <memory>
 
+class World;
+
 namespace Behaviour {
 
 class Action {
 public:
-    virtual void doAction(Agent& agent) = 0;
+    virtual void doAction(Agent &agent, World &world) = 0;
 };
 
 using ActionPtr = std::unique_ptr<Action>;
