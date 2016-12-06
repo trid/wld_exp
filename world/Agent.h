@@ -35,8 +35,8 @@ namespace ReactionType {
 class Agent {
     friend class World;
 private:
-    float food;
-    float water;
+    float food{100};
+    float water{100};
     int items;
     int maxWeight;
     float foodConsumption;
