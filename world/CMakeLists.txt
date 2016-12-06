@@ -12,10 +12,10 @@ set(BEHAVIOR_SOURCE_FILES
         behaviour/State.cpp
         behaviour/StateQueue.cpp
         behaviour/ScriptedState.cpp
-        behaviour/StateStorage.cpp)
+        behaviour/StateStorage.cpp behaviour/Action.cpp behaviour/Action.h)
 
 set(VIEW_SRC view/WorldView.cpp
-        view/AgentView.cpp)
+        view/AgentView.cpp behaviour/Action.cpp behaviour/Action.h)
 
 set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost COMPONENTS system filesystem)

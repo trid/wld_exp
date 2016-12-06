@@ -59,3 +59,10 @@ bool Agent::isWorking() const {
 const std::string &Agent::getWorkType() const {
     return workType;
 }
+
+void Agent::addItems(const std::string &type, int count) {
+    if (itemsType != type) {
+        items = 0;
+    }
+    items += count;
+}

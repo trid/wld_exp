@@ -7,12 +7,16 @@
 
 #include "../Agent.h"
 
+#include <memory>
+
 namespace Behaviour {
 
 class Action {
 public:
     virtual void doAction(Agent& agent) = 0;
 };
+
+using ActionPtr = std::unique_ptr<Action>;
 
 }
 

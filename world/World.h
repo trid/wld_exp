@@ -12,9 +12,12 @@
 #include "Location.h"
 #include "Agent.h"
 
+#include "behaviour/Action.h"
+
 class World {
 private:
     std::unordered_map<std::string, Location> locations;
+    std::unordered_map<std::string, Behaviour::ActionPtr> actions;
     std::vector<Agent> agents;
 
     void addAgent(const std::string& path);
