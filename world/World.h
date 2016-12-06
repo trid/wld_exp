@@ -35,6 +35,8 @@ public:
 
     void refillFood(Agent& agent);
     void refillWater(Agent& agent);
+
+    void addJob(JobPtr& job);
 };
 
 
