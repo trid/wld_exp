@@ -8,7 +8,7 @@
 #include "script_utils/ScriptUtils.h"
 
 void WorldState::update(int timeDelta) {
-
+    world.update(timeDelta);
 }
 
 WorldState::WorldState() {
