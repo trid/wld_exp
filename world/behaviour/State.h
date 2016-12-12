@@ -22,6 +22,7 @@ namespace Behaviour {
     public:
         virtual void act(Agent& agent) = 0;
         virtual SuspendType getSuspendType() { return SuspendType::Save; }
+        virtual bool isFinished() = 0;
     };
 
     using StatePtr = std::shared_ptr<State>;
