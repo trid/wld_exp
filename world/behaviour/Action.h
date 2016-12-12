@@ -13,6 +13,13 @@ class World;
 
 namespace Behaviour {
 
+namespace ActionTypes {
+    const std::string Eat = "eat";
+    const std::string Drink = "drink";
+    const std::string CutWood = "cut_wood";
+    const std::string Hunt = "hunt";
+}
+
 class Action {
 public:
     virtual void doAction(Agent &agent, World &world) = 0;
