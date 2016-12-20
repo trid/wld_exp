@@ -81,13 +81,24 @@ public:
     float getY() const;
 
     bool isMoving() { return dx != 0.0f || dy != 0.0f; }
-    const std::string &getDestination() const { return destination; }
+
 
     bool isWorking() const;
 
     void addItems(const std::string& type, int count);
 
     const std::string &getWorkType() const;
+
+    void doAction(const std::string& action);
+
+    void setState(Behaviour::StatePtr state) { this->state = state; }
+
+    void moveToLocation(const std::string& location);
+
+    const std::string &getDestination() const { return destination; }
+    void setDestination(const std::string &destination);
+
+    bool arrived();
 };
 
 

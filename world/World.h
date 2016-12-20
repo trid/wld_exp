@@ -37,6 +37,9 @@ public:
     void refillWater(Agent& agent);
 
     void addJob(JobPtr &&job);
+
+    void moveToLocation(Agent& agent, const std::string& location);
+    bool isOnLocation(Agent& agent, const::std::string& location);
 };
 
 

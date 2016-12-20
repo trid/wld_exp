@@ -4,6 +4,8 @@
 
 #include "Agent.h"
 
+#include "World.h"
+
 #include "behaviour/State.h"
 
 void Agent::update(int timeDelta) {
@@ -65,4 +67,20 @@ void Agent::addItems(const std::string &type, int count) {
         items = 0;
     }
     items += count;
+}
+
+void Agent::doAction(const std::string &action) {
+    world.doAction(*this, action);
+}
+
+void Agent::moveToLocation(const std::string &location) {
+    world.moveToLocation(*this, location);
+}
+
+void Agent::setDestination(const std::string &destination) {
+    Agent::destination = destination;
+}
+
+bool Agent::arrived() {
+    return world.isOnLocation(*this, destination);
 }

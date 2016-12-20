@@ -4,6 +4,10 @@
 
 #include "World.h"
 #include "behaviour/StateStorage.h"
+#include "behaviour/CutWoodAction.h"
+#include "behaviour/DrinkAction.h"
+#include "behaviour/EatAction.h"
+#include "behaviour/HuntAction.h"
 
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/ptree.hpp>
@@ -43,6 +47,11 @@ World::World() {
     for (directory_entry &x: directory_iterator(p)) {
         addAgent(x.path().string());
     }
+
+    actions.emplace(std::make_pair(Behaviour::ActionTypes::CutWood, std::make_unique<Behaviour::CutWoodAction>()));
+    actions.emplace(std::make_pair(Behaviour::ActionTypes::Drink, std::make_unique<Behaviour::DrinkAction>()));
+    actions.emplace(std::make_pair(Behaviour::ActionTypes::Eat, std::make_unique<Behaviour::EatAction>()));
+    actions.emplace(std::make_pair(Behaviour::ActionTypes::Hunt, std::make_unique<Behaviour::HuntAction>()));
 }
 
 void World::addAgent(const std::string &path) {
@@ -83,4 +92,30 @@ void World::refillWater(Agent &agent) {
 
 void World::addJob(JobPtr &&job) {
     jobs.push_back(std::move(job));
+}
+
+void World::moveToLocation(Agent &agent, const std::string &location) {
+    Location& loc = locations[location];
+    float agentX = agent.getX();
+    float agentY = agent.getY();
+    float locationX = loc.getX();
+    float locationY = loc.getY();
+
+    float dist = sqrtf((locationX - agentX) * (locationX - agentX) + (locationY - agentY) * (locationY - agentY));
+    float agentXN = agentX / dist;
+    float agentYN = agentY / dist;
+
+    agent.dx = agent.speed * agentXN;
+    agent.dy = agent.speed * agentYN;
+}
+
+bool World::isOnLocation(Agent &agent, const ::std::string &location) {
+    auto& loc = locations[location];
+    float agentX = agent.getX();
+    float agentY = agent.getY();
+
+    if (loc.getX() > agentX || agentX > loc.getX() + 32) return false;
+    if (loc.getY() < agentY || agentY > loc.getY() + 32) return false;
+
+    return true;
 }
