@@ -20,6 +20,7 @@ namespace Behaviour {
 
     class State {
     public:
+        virtual void start(Agent& agent) = 0;
         virtual void act(Agent& agent) = 0;
         virtual SuspendType getSuspendType() { return SuspendType::Save; }
         virtual bool isFinished() = 0;
