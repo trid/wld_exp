@@ -35,6 +35,10 @@ set(SFML_STATIC_LIBRARIES True)
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIR})
 
+find_package(TGUI REQUIRED)
+include_directories(${TGUI_INCLUDE_DIR})
+
+target_link_libraries(world ${TGUI_LIBRARY})
 
 find_package(SFML 2 REQUIRED graphics network audio window system)
 if(SFML_FOUND)
@@ -45,6 +49,7 @@ endif()
 
 target_link_libraries(world ${LUA_LIBRARIES})
 target_link_libraries(world ${OPENGL_LIBRARIES})
+target_link_libraries(world freetype)
 if (WIN32)
     target_link_libraries(world jpeg)
     target_link_libraries(world winmm)

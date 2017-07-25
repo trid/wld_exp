@@ -1,19 +1,12 @@
 cmake_minimum_required(VERSION 3.5)
 project(meng)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
-set(SOURCE_FILES
-        Application.cpp
-        State.cpp
-        view/Screen.cpp ScriptManager.cpp ScriptManager.h)
+add_definitions(-DSFML_STATIC)
 
-set(VIEW_SRC
-        view/View.cpp view/TextureManager.cpp view/TextureManager.h)
+file(GLOB SOURCE_FILES *.cpp)
+file(GLOB VIEW_SOURCE_FILES view/*.cpp)
+file(GLOB GUI_SOURCE_FILES view/GUI/*.cpp)
 
-find_package(Lua REQUIRED)
-
-include_directories(${LUA_INCLUDEDIR})
-
-add_library(meng STATIC
-        ${SOURCE_FILES} ${VIEW_SRC})
+add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES} ${VIEW_SOURCE_FILES} ${GUI_SOURCE_FILES})

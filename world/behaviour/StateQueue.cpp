@@ -7,3 +7,11 @@
 void Behaviour::StateQueue::act(Agent &agent) {
 
 }
+
+void Behaviour::StateQueue::start(Agent& agent) {
+
+}
+
+bool Behaviour::StateQueue::isFinished() {
+    return false;
+}

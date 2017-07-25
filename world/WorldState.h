@@ -19,7 +19,7 @@ public:
 
     World &getWorld();
 
-    void update(int timeDelta) override;
+    void update(int timeDelta);
 };
 
 

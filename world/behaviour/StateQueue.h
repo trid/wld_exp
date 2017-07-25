@@ -10,8 +10,16 @@
 namespace Behaviour {
 
     class StateQueue : public State {
+    private:
+        using StatesList = std::vector<std::string>;
     public:
+        StateQueue(StatesList::iterator begin, StatesList::iterator end) {};
+
         void act(Agent &agent) override;
+
+        void start(Agent& agent) override;
+
+        bool isFinished() override;
     };
 
 }

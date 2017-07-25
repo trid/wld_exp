@@ -1,26 +1,50 @@
 //
-// Created by dmitry.khovyakov on 11/28/2016.
+// Created by TriD on 24.05.2015.
 //
 
-#ifndef WLD_EXP_SCREEN_H
-#define WLD_EXP_SCREEN_H
+#ifndef FAMILY_BUSINESS_SCREEN_H
+#define FAMILY_BUSINESS_SCREEN_H
+
 
 #include <SFML/Graphics.hpp>
-
-#include "../utils/Singleton.h"
+#include <memory>
 
 namespace MEng {
-namespace View {
+    namespace View {
+        class View;
 
-class Screen: public Utils::Singleton<Screen> {
-private:
-    sf::RenderWindow window;
-public:
-    void init(unsigned int width, unsigned int height);
-    void draw(sf::Drawable& sprite);
-    sf::RenderWindow& getRenderWindow() { return window; }
-};
+        using ViewPtr = std::shared_ptr<View>;
 
-}}
+        class Screen {
+        private:
+            unsigned int width = 800;
+            unsigned int height = 600;
 
-#endif //WLD_EXP_SCREEN_H
+            sf::RenderWindow window;
+
+            Screen();
+
+        public:
+            static Screen &getInstance() {
+                static Screen instance;
+                return instance;
+            }
+
+            void init(unsigned int width, unsigned int height);
+
+            void draw();
+
+            sf::RenderWindow& getWindow() { return window; }
+
+            int getWidth() { return width; }
+
+            int getHeight() { return height; }
+
+            sf::Vector2f getSize() { return {static_cast<float>(width), static_cast<float>(height)}; }
+
+            void close();
+        };
+    }
+}
+
+#endif //FAMILY_BUSINESS_SCREEN_H

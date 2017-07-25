@@ -12,7 +12,7 @@ void WorldState::update(int timeDelta) {
 }
 
 WorldState::WorldState() {
-    viewPtr = std::make_shared<View::WorldView>(*this);
+    setView(std::make_shared<View::WorldView>(*this));
     registerScripts();
 }
 

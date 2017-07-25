@@ -9,6 +9,8 @@
 #include "behaviour/EatAction.h"
 #include "behaviour/HuntAction.h"
 
+#include <cmath>
+
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
@@ -94,8 +96,8 @@ void World::addJob(JobPtr &&job) {
     jobs.push_back(std::move(job));
 }
 
-void World::moveToLocation(Agent &agent, const std::string &location) {
-    Location& loc = locations[location];
+void World::moveToLocation(Agent& agent, const std::string& locationName) {
+    Location& loc = locations.at(locationName);
     float agentX = agent.getX();
     float agentY = agent.getY();
     float locationX = loc.getX();
@@ -109,8 +111,8 @@ void World::moveToLocation(Agent &agent, const std::string &location) {
     agent.dy = agent.speed * agentYN;
 }
 
-bool World::isOnLocation(Agent &agent, const ::std::string &location) {
-    auto& loc = locations[location];
+bool World::isOnLocation(Agent& agent, const ::std::string& locationName) {
+    auto& loc = locations.at(locationName);
     float agentX = agent.getX();
     float agentY = agent.getY();
 

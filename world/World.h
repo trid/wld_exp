@@ -38,8 +38,8 @@ public:
 
     void addJob(JobPtr &&job);
 
-    void moveToLocation(Agent& agent, const std::string& location);
-    bool isOnLocation(Agent& agent, const::std::string& location);
+    void moveToLocation(Agent& agent, const std::string& locationName);
+    bool isOnLocation(Agent& agent, const ::std::string& locationName);
 };
 
 

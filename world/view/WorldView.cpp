@@ -47,10 +47,10 @@ worldState(worldState)
     }
 }
 
-void View::WorldView::draw() {
+void View::WorldView::draw(sf::RenderWindow &renderer) {
     for (auto item: agentViews) {
         item->updatePosition();
     }
 
-    MEng::View::View::draw();
+    MEng::View::View::draw(renderer);
 }

@@ -1,28 +1,59 @@
 //
-// Created by dmitry.khovyakov on 11/28/2016.
+// Created by dmitry-khovyakov on 5/25/15.
 //
 
-#ifndef WLD_EXP_VIEW_H
-#define WLD_EXP_VIEW_H
+#ifndef FAMILY_BUSINESS_VIEW_H
+#define FAMILY_BUSINESS_VIEW_H
 
-#include <functional>
-#include <memory>
+#include <algorithm>
 #include <vector>
-#include <SFML/Graphics/Sprite.hpp>
+
+#include "GUI/UILayout.h"
+#include "Screen.h"
+#include "../Point.h"
+#include "Drawable.h"
+#include "Animation.h"
 
 namespace MEng {
-namespace View {
+    namespace View {
 
-    using DrawablePtr = std::shared_ptr<sf::Drawable>;
+        class View {
+        private:
+            std::unique_ptr<tgui::Gui> gui;
+            std::vector<MEng::View::DrawablePtr> drawables;
+            std::vector<MEng::View::AnimationPtr> animations;
+        public:
+            View();
+            virtual ~View();
 
-    class View {
-    private:
-        std::vector<DrawablePtr> sprites;
-    public:
-        virtual void draw();
-        void addDrawable(DrawablePtr drawablePtr);
-    };
+            virtual void draw(sf::RenderWindow &renderer);
 
-    using ViewPtr = std::shared_ptr<View>;
-}}
-#endif //WLD_EXP_VIEW_H
+            virtual void onClick(const MEng::Point &point, int button);
+
+            virtual void onMouseMove(const MEng::Point point);
+
+            virtual bool onKeyUp(int key);;
+
+            virtual bool onKeyDown(int key);;
+
+            virtual void update(int timeDelta);
+
+            tgui::Gui &getLayout() { return *gui; }
+
+            void addDrawable(MEng::View::DrawablePtr drawable) { drawables.push_back(drawable); }
+
+            void removeDrawable(MEng::View::DrawablePtr drawablePtr) {
+                drawables.erase(std::remove(drawables.begin(), drawables.end(), drawablePtr), drawables.end());
+            }
+
+            void addAnimation(MEng::View::AnimationPtr animation) { animations.push_back(animation); }
+
+            tgui::Gui& getGui() { return *gui; }
+        };
+
+        using ViewPtr = std::shared_ptr<View>;
+
+    }
+}
+
+#endif //FAMILY_BUSINESS_VIEW_H

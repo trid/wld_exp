@@ -21,7 +21,7 @@ namespace View {
     public:
         WorldView(WorldState &worldState);
 
-        void draw() override;
+        void draw(sf::RenderWindow &renderer) override;
     };
 
 }

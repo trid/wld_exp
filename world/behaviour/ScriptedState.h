@@ -17,6 +17,10 @@ public:
     ScriptedState(const std::string &tableName);
 
     void act(Agent &agent) override;
+
+    void start(Agent& agent) override;
+
+    bool isFinished() override;
 };
 
 }

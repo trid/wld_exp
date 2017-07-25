@@ -47,7 +47,7 @@ namespace ScriptUtils {
         }
 
         Agent* agent = (Agent *) lua_topointer(state, -2);
-        agent->setState({new Behaviour::StateQueue(v.begin(), v.end())});
+        agent->setState(std::make_shared<Behaviour::StateQueue>(v.begin(), v.end()));
 
         return 0;
     }

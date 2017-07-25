@@ -1,24 +1,47 @@
 //
-// Created by dmitry.khovyakov on 11/25/2016.
+// Created by TriD on 24.05.2015.
 //
 
 #include "Application.h"
 #include "view/Screen.h"
+#include "EventManager.h"
+#include "MessageManager.h"
 
-void MEng::Application::run() {
+using namespace MEng;
+using namespace MEng::View;
+
+void Application::run() {
     while (running) {
-        sf::Time time = clock.restart();
-
+        Screen::getInstance().draw();
+        EventManager::getInstance().process();
+        MessageManager::getInstance().update();
         if (!states.empty()) {
-            states.back()->update(time.asMilliseconds());
-            if (states.back()->hasView()) {
-                states.back()->getView().draw();
-                View::Screen::getInstance().getRenderWindow().display();
-            }
+            auto state = states.back();
+            state->run();
         }
     }
+
+    while (!states.empty()) {
+        states.pop_back();
+    }
+
+    Screen::getInstance().close();
 }
 
-void MEng::Application::pushState(MEng::StatePtr state) {
+void Application::pushState(StatePtr state) {
+    if (!states.empty()) {
+        states.back()->onDeactivate();
+    }
     states.push_back(state);
+    state->onActivate();
+}
+
+void Application::popState() {
+    states.back()->onDeactivate();
+    if (!states.empty()) {
+        states.pop_back();
+        if (!states.empty()) {
+            states.back()->onActivate();
+        }
+    }
 }

@@ -1,37 +1,42 @@
 //
-// Created by dmitry.khovyakov on 11/25/2016.
+// Created by TriD on 24.05.2015.
 //
 
-#ifndef WLD_EXP_APPLICATION_H
-#define WLD_EXP_APPLICATION_H
+#ifndef FAMILY_BUSINESS_APPLICATION_H
+#define FAMILY_BUSINESS_APPLICATION_H
+
+
+#include "State.h"
 
 #include <vector>
 
-#include <SFML/System/Clock.hpp>
-#include <SFML/System/Time.hpp>
-
-#include "utils/Singleton.h"
-#include "State.h"
-
 namespace MEng {
-
     using States = std::vector<StatePtr>;
 
-    class Application: public Utils::Singleton<Application> {
+    class Application {
     private:
+        Application() { };
+        bool running = true;
         States states;
-
-        sf::Clock clock;
-
-        bool running{true};
     public:
+        static Application &getInstance() {
+            static Application instance;
+            return instance;
+        }
+
         void run();
-        void stop() { running = false; }
-        bool isRunning() const { return running; }
+
+        void finish() { running = false; }
 
         void pushState(StatePtr state);
+
+        void popState();
+
+        State &getCurrentState() { return *states.back(); }
+        //Lock current state so it will not be destroyed as long as StatePtr exists
+        StatePtr lockCurrentState() { return states.back(); }
+
+        bool hasState() { return !states.empty(); }
     };
-
 }
-
-#endif //WLD_EXP_APPLICATION_H
+#endif //FAMILY_BUSINESS_APPLICATION_H
