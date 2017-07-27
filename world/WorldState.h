@@ -18,8 +18,6 @@ public:
     WorldState();
 
     World &getWorld();
-
-    void update(int timeDelta);
 };
 
 
